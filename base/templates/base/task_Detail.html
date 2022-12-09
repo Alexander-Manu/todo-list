@@ -1,0 +1,35 @@
+{% extends 'base/main.html' %}
+
+{% block content %}
+
+<div class="header_bar">
+    <a class="text-light" href="{% url 'home' %}">&#8592; Back</a>
+</div>
+
+<div class="card text-center">
+    <div class="card-header">
+      Task Details
+    </div>
+    <div class="form-body">
+      <h5 class="card-title">Title:</h5>
+      <p class="card-text">{{task.title}}.</p>
+
+      <h5 class="card-title">Created:</h5>
+      <p class="card-text">{{task.created|timesince}} ago.</p>
+
+      <h5 class="card-title">Description:</h5>
+      <p class="card-text">{{task.description}}.</p>
+
+      <h5 class="card-title">Completed:</h5>
+      {% if task.completed %}
+      <p class="card-text">YES.</p>
+      {% else %}
+      <p class="card-text">NO.</p>
+      {% endif %}
+      <a href="{% url 'home' %}" class="button btn btn-primary">&#8592; Go Back</a>
+    </div>
+   
+  </div>
+
+
+{% endblock content %}

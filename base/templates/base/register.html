@@ -1,0 +1,62 @@
+{% extends 'base/main.html' %}
+
+{% block content %}
+
+<div class="header_bar">
+    <h3>Register</h3>
+</div>
+
+<!-- <h3 id="add-link" class="text-center mt-3 fw-bold">Login Form</h3> -->
+
+<div class="form-body">
+    {% if messages %}
+        <div class="messages">
+            {% for message in messages %}
+            <p>{{message}}</p>
+            {% endfor %}
+        </div>
+    {% endif %}
+<form action="." method="POST">
+  {% csrf_token %}
+
+  <!-- {% for field in form %}
+    <div class="mb-3">
+      <label for="username" class="form-label">{{field.label}}:</label>
+      {{field}}
+    </div>
+    {% endfor %} -->
+
+    <div class="mb-3">
+      <label for="username" class="form-label">Username:</label>
+      {{form.username}}
+    </div>
+    <div class="mb-3">
+      <label for="email" class="form-label">Email:</label>
+      {{form.email}}
+    </div>
+    <div class="mb-3">
+      <label for="password1" class="form-label">password:</label>
+      {{form.password1}}
+    </div>
+    <div class="mb-3">
+      <label for="password2" class="form-label">Confirm Password:</label>
+      {{form.password2}}
+    </div>
+    
+    <input type="submit" class="button btn btn-primary" value="Register">
+
+    <p class="mt-2">Already have an account? <a href="{% url 'login' %}">Login Now</a></p>
+  </form>
+</div>
+
+<!-- <div class="form-body">
+    <form action="" method="post">
+        {% csrf_token %}
+        {{form.as_p}}
+        <input class="button" type="submit" value="submit">
+    </form>
+</div> -->
+
+
+
+{% endblock content %}

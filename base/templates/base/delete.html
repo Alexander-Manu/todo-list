@@ -1,0 +1,20 @@
+{% extends 'base/main.html' %}
+
+{% block content %}
+
+<div class="header_bar">
+    <a class="text-light" href="{% url 'home' %}">&#8592; Back</a>
+</div>
+
+<div class="form-body">
+    <form method="POST">
+        {% csrf_token %}
+
+        <p>Are you sure you want to delete '{{obj.title}}'?</p>
+
+        <a class="btn btn-outline-primary" href="{{request.META.HTTP_REFERER}}">Back</a>
+        <button type="submit" class="button btn btn-primary ms-3">Confirm</button>
+    </form>
+</div>
+
+{% endblock content %}

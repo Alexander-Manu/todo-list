@@ -1,0 +1,38 @@
+{% extends 'base/main.html' %}
+
+{% block content %}
+
+<div class="header_bar">
+    <a class="text-light" href="{% url 'home' %}">&#8592; Back</a>
+</div>
+
+<h3 id="add-link" class="text-center mt-3 fw-bold">Update Task</h3>
+
+
+
+ <div class="form-body">
+<form action="" method="post">
+  {% csrf_token %}
+
+    <div class="mb-3">
+      <label for="title" class="form-label">Title:</label>
+      {{form.title}}
+    </div>
+
+    <div class="mb-3">
+      <label for="title" class="form-label">Description:</label>
+      {{form.description}}
+    </div>
+    
+    <div class="mb-3">
+      <!-- <input type="checkbox" class="form-check-input" id="exampleCheck1">  -->
+      
+      <label class="form-check-label" for="completed">Completed {{form.completed}}</label>
+      
+    </div>
+    <button type="submit" class="button btn btn-primary">Update</button>
+  </form>
+</div> 
+
+
+{% endblock content %}
